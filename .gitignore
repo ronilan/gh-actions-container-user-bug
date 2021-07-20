@@ -1,0 +1,40 @@
+# anything, anywhere starting with __ or ~~
+__*
+~~*
+
+# Local development
+*.env
+*.dev
+
+# Apple
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# js
+node_modules/
+
+# artifacts
+build/
+build-tmp*/
+dist/
+
+.vagrant
+*.tgz
+oboe-*
+oboe/liboboe-1.0.so.0
+oboe/liboboe.so
+oboe/*ChangeLog
+.nyc_output/
+
+# github actions need dist
+# !.github/actions/**/node_modules/
+!.github/actions/**/dist/

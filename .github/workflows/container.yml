@@ -1,0 +1,26 @@
+name: Container Matrix Checkout
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest 
+    strategy:
+      fail-fast: false
+      matrix:
+        image: [ 
+          'node:16', # success
+          'node:16-alpine3.14', # success
+          'ghcr.io/ronilan/gh-actions-container-user-bug/node:16-alpine3.14-user', #fail
+          'ghcr.io/ronilan/gh-actions-container-user-bug/node:16-user', #fail
+          'bitnami/laravel' #fail
+        ]
+    container:
+      image:  ${{ matrix.image }}
+
+    steps:
+      - run: id
+
+      - name: Checkout ${{ github.ref }}
+        uses: actions/checkout@v2
